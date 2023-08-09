@@ -1,7 +1,6 @@
 "use client";
 
 import { usePathname, useSearchParams } from "next/navigation";
-import Link from "next/link";
 
 export default function NavBar() {
   const pathname = usePathname();
@@ -12,18 +11,18 @@ export default function NavBar() {
         <li
           className={`p-4 ${pathname === "/" && "bg-red-600"} hover:bg-red-300`}
         >
-          <Link className="text-white-500" href="/">
+          <a className="text-white-500" href="/">
             Search
-          </Link>
+          </a>
         </li>
         <li
           className={`p-4 ${
             pathname === "/visualisation" && "bg-red-600"
           } hover:bg-red-300`}
         >
-          <Link href="/visualisation" className="text-white-500">
+          <a href="/visualisation" className="text-white-500">
             Visualisation
-          </Link>
+          </a>
         </li>
       </ul>
     </div>
