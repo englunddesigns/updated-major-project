@@ -9,7 +9,7 @@ export default function ShipTable() {
   const { shipData, isLoading } = useShipData(searchParams?.toString());
 
   return (
-    <div className="p-4">
+    <div className="p-4 text-white">
       <div className="flex flex-col mb-4">
         <Link href="/">
           <svg

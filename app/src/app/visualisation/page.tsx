@@ -6,7 +6,11 @@ export default function Visualisation() {
     <main className="flex min-h-screen w-full bg-white flex-col items-center">
       <NavBar />
       <div id="map" className="w-full h-full">
-        <svg id="svg" viewBox="0 0 1000 1000"></svg>
+        <svg
+          id="svg"
+          className="cursor-move w-full touch-none outline outline-1 outline-black"
+          viewBox="0 0 1000 1000"
+        ></svg>
       </div>
       <div className="zoom">
         <button

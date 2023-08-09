@@ -16,18 +16,10 @@
   }
 }
 
-svg {
-  outline: 1px solid black;
-  cursor: move;
-  width: 100%;
-  touch-action: none;
-}
-
 .zoom {
   position: fixed;
   display: block;
   height: 100%;
-  /*overflow: auto;*/
   z-index: 1;
   right: 0;
   top: 150px;
