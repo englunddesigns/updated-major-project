@@ -1,0 +1,45 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model mariner {
+  mariner_id         String               @id @default(uuid())
+  name               String?              
+  year_of_birth      String?              
+  age                String?              
+  place_of_birth     String?              
+  home_address       String?              
+  mariner_employment mariner_employment[]
+}
+
+model mariner_employment {
+  mariner_employment_id           String   @id @default(uuid())
+  ship_last_served                String?  
+  port_of_last_ship               String?  
+  date_of_leaving_last_ship       String?  
+  date_of_joining_current_ship    String?  
+  port_of_joining_current_ship    String?  
+  capacity_onboard_current_ship   String?  
+  date_of_leaving_current_ship    String?  
+  port_of_leaving_current_ship    String?  
+  reason_for_leaving_current_ship String?  
+  signed_with_mark                String?  
+  comments                        String?
+  mariner_id                      String?  
+  ship_id                         String?
+  mariner                         mariner? @relation(fields: [mariner_id], references: [mariner_id], onDelete: NoAction, onUpdate: NoAction)
+  ship                            ship?    @relation(fields: [ship_id], references: [ship_id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model ship {
+  ship_id            String               @id @default(uuid())
+  official_number    String?              
+  vessel_name        String?              
+  port_of_registry   String?              
+  mariner_employment mariner_employment[]
+}
